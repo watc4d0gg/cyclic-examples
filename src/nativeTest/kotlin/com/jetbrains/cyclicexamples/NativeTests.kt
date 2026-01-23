@@ -101,10 +101,10 @@ class NativeTests {
         val t1 = Worker.start(name = "t1")
         val t2 = Worker.start(name = "t2")
         runBlocking {
-            val r1 = t1.execute(TransferMode.UNSAFE, {}) {
+            val r1 = t1.execute(TransferMode.SAFE, { t1 }) {
                 assertDoesNotFail { Table1 }
             }
-            val r2 = t2.execute(TransferMode.UNSAFE, {}) {
+            val r2 = t2.execute(TransferMode.SAFE, { t2 }) {
                 assertDoesNotFail { Table2 }
             }
             delay(5.seconds)
