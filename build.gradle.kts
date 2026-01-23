@@ -40,6 +40,7 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.kotlinx.coroutines.test)
             implementation(libs.kotlin.test)
             implementation(libs.junit)
         }
@@ -49,6 +50,6 @@ kotlin {
     }
 }
 
-tasks.withType<Test> {
+tasks.named<Test>("jvmTest") {
     useJUnitPlatform()
 }

@@ -1,3 +1,5 @@
+@file:OptIn(ObsoleteWorkersApi::class)
+
 package com.jetbrains.cyclicexamples
 
 import com.jetbrains.cyclicexamples.kt20238.ClassTest
@@ -12,16 +14,24 @@ import com.jetbrains.cyclicexamples.kt82226.IrDeclarationOrigin
 import com.jetbrains.cyclicexamples.kt82226.IrDeclarationOriginImpl
 import com.jetbrains.cyclicexamples.kt8970.B
 import com.jetbrains.cyclicexamples.kt8970.C
+import com.jetbrains.cyclicexamples.kt8970.C1
+import com.jetbrains.cyclicexamples.kt8970.C2
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.newSingleThreadContext
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.withContext
 import platform.posix.sleep
 import platform.posix.wait
 import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
+import kotlin.native.concurrent.FutureState
 import kotlin.native.concurrent.ObsoleteWorkersApi
 import kotlin.native.concurrent.TransferMode
 import kotlin.native.concurrent.Worker
@@ -60,18 +70,34 @@ class NativeTests {
     }
 
     @Test
-    fun test_KT20238() {
+    fun test_KT20238_enum() {
         assertSame("OK", EnumTest.z)
+    }
+
+    @Test
+    fun test_KT20238_interface() {
         assertSame("OK", InterfaceTest.z)
+    }
+
+    @Test
+    fun test_KT20238_class() {
         assertSame("OK", ClassTest.z)
     }
 
     @Test
-    fun test_KT8970() {
+    fun test_KT8970_object() {
         // initialize B first
         val actual = B.x
         assertSame(B, C.x)
         assertSame(C, actual)
+    }
+
+    @Test
+    fun test_KT8970_companion() {
+        // initialize C1 first
+        val actual = C1.x
+        assertSame(C1, C2.x)
+        assertSame(C2, actual)
     }
 
     @Test
@@ -90,12 +116,20 @@ class NativeTests {
 
     @Test
     fun test_KT71653() {
-        runBlocking(Dispatchers.Default) {
-            launch {
+        val t1 = Worker.start(name = "t1")
+        val t2 = Worker.start(name = "t2")
+        runBlocking {
+            val r1 = t1.execute(TransferMode.UNSAFE, {}) {
                 assertDoesNotFail { Table1 }
             }
-            launch {
+            val r2 = t2.execute(TransferMode.UNSAFE, {}) {
                 assertDoesNotFail { Table2 }
+            }
+            delay(5.seconds)
+            if (r1.state != FutureState.COMPUTED && r2.state != FutureState.COMPUTED) {
+                t1.requestTermination(false)
+                t2.requestTermination(false)
+                fail("The test timed out!")
             }
         }
     }

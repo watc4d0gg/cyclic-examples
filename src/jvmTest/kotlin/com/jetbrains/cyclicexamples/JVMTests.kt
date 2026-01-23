@@ -12,6 +12,8 @@ import com.jetbrains.cyclicexamples.kt82226.IrDeclarationOrigin
 import com.jetbrains.cyclicexamples.kt82226.IrDeclarationOriginImpl
 import com.jetbrains.cyclicexamples.kt8970.B
 import com.jetbrains.cyclicexamples.kt8970.C
+import com.jetbrains.cyclicexamples.kt8970.C1
+import com.jetbrains.cyclicexamples.kt8970.C2
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -47,18 +49,34 @@ class JVMTests {
     }
 
     @Test
-    fun test_KT20238() {
+    fun test_KT20238_enum() {
         assertSame("OK", EnumTest.z)
+    }
+
+    @Test
+    fun test_KT20238_interface() {
         assertSame("OK", InterfaceTest.z)
+    }
+
+    @Test
+    fun test_KT20238_class() {
         assertSame("OK", ClassTest.z)
     }
 
     @Test
-    fun test_KT8970() {
+    fun test_KT8970_object() {
         // initialize B first
         val actual = B.x
         assertSame(B, C.x)
         assertSame(C, actual)
+    }
+
+    @Test
+    fun test_KT8970_companion() {
+        // intialize C1 first
+        val actual = C1.x
+        assertSame(C1, C2.x)
+        assertSame(C2, actual)
     }
 
     @Test
