@@ -16,35 +16,17 @@ import com.jetbrains.cyclicexamples.kt8970.B
 import com.jetbrains.cyclicexamples.kt8970.C
 import com.jetbrains.cyclicexamples.kt8970.C1
 import com.jetbrains.cyclicexamples.kt8970.C2
-import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.newSingleThreadContext
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.withContext
-import platform.posix.sleep
-import platform.posix.wait
-import kotlin.contracts.InvocationKind.EXACTLY_ONCE
-import kotlin.contracts.contract
 import kotlin.native.concurrent.FutureState
 import kotlin.native.concurrent.ObsoleteWorkersApi
 import kotlin.native.concurrent.TransferMode
 import kotlin.native.concurrent.Worker
-import kotlin.native.concurrent.withWorker
-import kotlin.native.internal.isPermanent
 import kotlin.test.Test
-import kotlin.test.assertFails
-import kotlin.test.assertIs
-import kotlin.test.assertNotNull
-import kotlin.test.assertNull
 import kotlin.test.assertSame
 import kotlin.test.fail
-import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.seconds
 
 class NativeTests {
