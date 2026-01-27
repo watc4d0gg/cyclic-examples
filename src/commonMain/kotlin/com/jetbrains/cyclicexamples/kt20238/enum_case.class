@@ -1,0 +1,241 @@
+// ================com/jetbrains/cyclicexamples/kt20238/Enum.class =================
+// class version 69.0 (69)
+// access flags 0x4031
+// signature Ljava/lang/Enum<Lcom/jetbrains/cyclicexamples/kt20238/Enum;>;
+// declaration: com/jetbrains/cyclicexamples/kt20238/Enum extends java.lang.Enum<com.jetbrains.cyclicexamples.kt20238.Enum>
+public final enum com/jetbrains/cyclicexamples/kt20238/Enum extends java/lang/Enum {
+
+  // compiled from: Main.kt
+
+  @Lkotlin/Metadata;(mv={2, 3, 0}, k=1, xi=48, d1={"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0000\n\u0002\u0010\u000e\n\u0002\u0008\u0006\u0008\u0086\u0081\u0002\u0018\u00002\u0008\u0012\u0004\u0012\u00020\u00000\u0001B\u0011\u0008\u0002\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0004\u0008\u0004\u0010\u0005R\u0011\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0006\u0010\u0007j\u0002\u0008\u0008\u00a8\u0006\u0009"}, d2={"Lcom/jetbrains/cyclicexamples/kt20238/Enum;", "", "y", "", "<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "getY", "()Ljava/lang/String;", "ENTRY", "cyclic-examples.commonMain"})
+  // access flags 0x19
+  public final static INNERCLASS com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion com/jetbrains/cyclicexamples/kt20238/EnumTest Companion
+
+  // access flags 0x12
+  private final Ljava/lang/String; y
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+
+  // access flags 0x4019
+  public final static enum Lcom/jetbrains/cyclicexamples/kt20238/Enum; ENTRY
+
+  // access flags 0x101A
+  private final static synthetic [Lcom/jetbrains/cyclicexamples/kt20238/Enum; $VALUES
+
+  // access flags 0x101A
+  private final static synthetic Lkotlin/enums/EnumEntries; $ENTRIES
+
+  // access flags 0x2
+  // signature (Ljava/lang/String;)V
+  // declaration: void <init>(java.lang.String)
+  private <init>(Ljava/lang/String;ILjava/lang/String;)V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKESPECIAL java/lang/Enum.<init> (Ljava/lang/String;I)V
+    ALOAD 0
+    ALOAD 3
+    PUTFIELD com/jetbrains/cyclicexamples/kt20238/Enum.y : Ljava/lang/String;
+    NOP
+    RETURN
+   L1
+    LOCALVARIABLE this Lcom/jetbrains/cyclicexamples/kt20238/Enum; L0 L1 0
+    LOCALVARIABLE $enum$name Ljava/lang/String; L0 L1 1
+    LOCALVARIABLE $enum$ordinal I L0 L1 2
+    LOCALVARIABLE y Ljava/lang/String; L0 L1 3
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0x11
+  public final getY()Ljava/lang/String;
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    GETFIELD com/jetbrains/cyclicexamples/kt20238/Enum.y : Ljava/lang/String;
+    ARETURN
+   L1
+    LOCALVARIABLE this Lcom/jetbrains/cyclicexamples/kt20238/Enum; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static values()[Lcom/jetbrains/cyclicexamples/kt20238/Enum;
+    GETSTATIC com/jetbrains/cyclicexamples/kt20238/Enum.$VALUES : [Lcom/jetbrains/cyclicexamples/kt20238/Enum;
+    INVOKEVIRTUAL java/lang/Object.clone ()Ljava/lang/Object;
+    NOP
+    CHECKCAST [Lcom/jetbrains/cyclicexamples/kt20238/Enum;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 0
+
+  // access flags 0x9
+  public static valueOf(Ljava/lang/String;)Lcom/jetbrains/cyclicexamples/kt20238/Enum;
+   L0
+    LDC Lcom/jetbrains/cyclicexamples/kt20238/Enum;.class
+    INVOKESTATIC kotlin/jvm/internal/Reflection.getOrCreateKotlinClass (Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    INVOKESTATIC kotlin/jvm/JvmClassMappingKt.getJavaClass (Lkotlin/reflect/KClass;)Ljava/lang/Class;
+    ALOAD 0
+    INVOKESTATIC java/lang/Enum.valueOf (Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+    NOP
+    CHECKCAST com/jetbrains/cyclicexamples/kt20238/Enum
+    ARETURN
+   L1
+    LOCALVARIABLE value Ljava/lang/String; L0 L1 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature ()Lkotlin/enums/EnumEntries<Lcom/jetbrains/cyclicexamples/kt20238/Enum;>;
+  // declaration: kotlin.enums.EnumEntries<com.jetbrains.cyclicexamples.kt20238.Enum> getEntries()
+  public static getEntries()Lkotlin/enums/EnumEntries;
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+    GETSTATIC com/jetbrains/cyclicexamples/kt20238/Enum.$ENTRIES : Lkotlin/enums/EnumEntries;
+    NOP
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 0
+
+  // access flags 0x101A
+  private final static synthetic $values()[Lcom/jetbrains/cyclicexamples/kt20238/Enum;
+    ICONST_1
+    ANEWARRAY com/jetbrains/cyclicexamples/kt20238/Enum
+    ASTORE 0
+    ALOAD 0
+    ICONST_0
+    GETSTATIC com/jetbrains/cyclicexamples/kt20238/Enum.ENTRY : Lcom/jetbrains/cyclicexamples/kt20238/Enum;
+    AASTORE
+    ALOAD 0
+    NOP
+    ARETURN
+    MAXSTACK = 3
+    MAXLOCALS = 1
+
+  // access flags 0x8
+  static <clinit>()V
+   L0
+    LINENUMBER 4 L0
+    NEW com/jetbrains/cyclicexamples/kt20238/Enum
+    DUP
+    LDC "ENTRY"
+    ICONST_0
+    GETSTATIC com/jetbrains/cyclicexamples/kt20238/EnumTest.Companion : Lcom/jetbrains/cyclicexamples/kt20238/EnumTest$Companion;
+    INVOKEVIRTUAL com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion.getX ()Ljava/lang/String;
+    INVOKESPECIAL com/jetbrains/cyclicexamples/kt20238/Enum.<init> (Ljava/lang/String;ILjava/lang/String;)V
+    PUTSTATIC com/jetbrains/cyclicexamples/kt20238/Enum.ENTRY : Lcom/jetbrains/cyclicexamples/kt20238/Enum;
+    INVOKESTATIC com/jetbrains/cyclicexamples/kt20238/Enum.$values ()[Lcom/jetbrains/cyclicexamples/kt20238/Enum;
+    PUTSTATIC com/jetbrains/cyclicexamples/kt20238/Enum.$VALUES : [Lcom/jetbrains/cyclicexamples/kt20238/Enum;
+    GETSTATIC com/jetbrains/cyclicexamples/kt20238/Enum.$VALUES : [Lcom/jetbrains/cyclicexamples/kt20238/Enum;
+    CHECKCAST [Ljava/lang/Enum;
+    INVOKESTATIC kotlin/enums/EnumEntriesKt.enumEntries ([Ljava/lang/Enum;)Lkotlin/enums/EnumEntries;
+    PUTSTATIC com/jetbrains/cyclicexamples/kt20238/Enum.$ENTRIES : Lkotlin/enums/EnumEntries;
+    RETURN
+    MAXSTACK = 5
+    MAXLOCALS = 0
+}
+
+
+// ================com/jetbrains/cyclicexamples/kt20238/EnumTest.class =================
+// class version 69.0 (69)
+// access flags 0x601
+public abstract interface com/jetbrains/cyclicexamples/kt20238/EnumTest {
+
+  // compiled from: Main.kt
+
+  @Lkotlin/Metadata;(mv={2, 3, 0}, k=1, xi=48, d1={"\u0000\u000c\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0008\u0002\u0008f\u0018\u0000 \u00022\u00020\u0001:\u0001\u0002\u00a8\u0006\u0003\u00c0\u0006\u0003"}, d2={"Lcom/jetbrains/cyclicexamples/kt20238/EnumTest;", "", "Companion", "cyclic-examples.commonMain"})
+  // access flags 0x19
+  public final static INNERCLASS com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion com/jetbrains/cyclicexamples/kt20238/EnumTest Companion
+
+  // access flags 0x19
+  public final static Lcom/jetbrains/cyclicexamples/kt20238/EnumTest$Companion; Companion
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+
+  // access flags 0x8
+  static <clinit>()V
+    GETSTATIC com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion.$$INSTANCE : Lcom/jetbrains/cyclicexamples/kt20238/EnumTest$Companion;
+    PUTSTATIC com/jetbrains/cyclicexamples/kt20238/EnumTest.Companion : Lcom/jetbrains/cyclicexamples/kt20238/EnumTest$Companion;
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 0
+}
+
+
+// ================com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion.class =================
+// class version 69.0 (69)
+// access flags 0x31
+public final class com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion {
+
+  // compiled from: Main.kt
+
+  @Lkotlin/Metadata;(mv={2, 3, 0}, k=1, xi=48, d1={"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0008\u0003\n\u0002\u0010\u000e\n\u0002\u0008\u0005\u0008\u0086\u0003\u0018\u00002\u00020\u0001B\u0009\u0008\u0002\u00a2\u0006\u0004\u0008\u0002\u0010\u0003R\u0014\u0010\u0004\u001a\u00020\u0005X\u0086D\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0006\u0010\u0007R\u0011\u0010\u0008\u001a\u00020\u0005\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0009\u0010\u0007\u00a8\u0006\n"}, d2={"Lcom/jetbrains/cyclicexamples/kt20238/EnumTest$Companion;", "", "<init>", "()V", "x", "", "getX", "()Ljava/lang/String;", "z", "getZ", "cyclic-examples.commonMain"})
+  // access flags 0x19
+  public final static INNERCLASS com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion com/jetbrains/cyclicexamples/kt20238/EnumTest Companion
+
+  // access flags 0x1018
+  final static synthetic Lcom/jetbrains/cyclicexamples/kt20238/EnumTest$Companion; $$INSTANCE
+
+  // access flags 0x1A
+  private final static Ljava/lang/String; x
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+
+  // access flags 0x1A
+  private final static Ljava/lang/String; z
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+
+  // access flags 0x2
+  private <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    NOP
+    RETURN
+   L1
+    LOCALVARIABLE this Lcom/jetbrains/cyclicexamples/kt20238/EnumTest$Companion; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x11
+  public final getX()Ljava/lang/String;
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+   L0
+    LINENUMBER 9 L0
+    GETSTATIC com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion.x : Ljava/lang/String;
+    ARETURN
+   L1
+    LOCALVARIABLE this Lcom/jetbrains/cyclicexamples/kt20238/EnumTest$Companion; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x11
+  public final getZ()Ljava/lang/String;
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+   L0
+    LINENUMBER 10 L0
+    GETSTATIC com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion.z : Ljava/lang/String;
+    ARETURN
+   L1
+    LOCALVARIABLE this Lcom/jetbrains/cyclicexamples/kt20238/EnumTest$Companion; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x8
+  static <clinit>()V
+    NEW com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion
+    DUP
+    INVOKESPECIAL com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion.<init> ()V
+    PUTSTATIC com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion.$$INSTANCE : Lcom/jetbrains/cyclicexamples/kt20238/EnumTest$Companion;
+   L0
+    LINENUMBER 9 L0
+    LDC "OK"
+    PUTSTATIC com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion.x : Ljava/lang/String;
+   L1
+    LINENUMBER 10 L1
+    GETSTATIC com/jetbrains/cyclicexamples/kt20238/Enum.ENTRY : Lcom/jetbrains/cyclicexamples/kt20238/Enum;
+    INVOKEVIRTUAL com/jetbrains/cyclicexamples/kt20238/Enum.getY ()Ljava/lang/String;
+    PUTSTATIC com/jetbrains/cyclicexamples/kt20238/EnumTest$Companion.z : Ljava/lang/String;
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 0
+}
