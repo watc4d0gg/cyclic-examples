@@ -25,12 +25,10 @@ kotlin {
     nativeTarget.apply {
         binaries {
             executable {
+                freeCompilerArgs += "-Xsave-llvm-ir-after=Codegen,ModuleBitcodeOptimization"
+                freeCompilerArgs += "-Xsave-llvm-ir-directory=${project.projectDir}/build"
                 entryPoint = "com.jetbrains.cyclicexamples.main"
             }
-        }
-        compilerOptions {
-            freeCompilerArgs.add("-Xsave-llvm-ir-after=Codegen,ModuleBitcodeOptimization")
-            freeCompilerArgs.add("-Xsave-llvm-ir-directory=${project.projectDir}/build")
         }
     }
 
@@ -42,10 +40,10 @@ kotlin {
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.coroutines.test)
             implementation(libs.kotlin.test)
-            implementation(libs.junit)
         }
         jvmTest.dependencies {
             implementation(libs.junit.jupiter)
+            implementation(libs.junit)
         }
     }
 }

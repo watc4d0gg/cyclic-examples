@@ -7,6 +7,7 @@ enum class Enum(val y: String) {
 interface EnumTest {
     companion object {
         val x = "OK"
+
         val z = Enum.ENTRY.y
     }
 }

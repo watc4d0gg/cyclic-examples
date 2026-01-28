@@ -1,6 +1,3 @@
-rootProject.name = "cyclic-examples"
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
 pluginManagement {
     repositories {
         mavenCentral()
@@ -8,8 +5,4 @@ pluginManagement {
     }
 }
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
-}
-
-//include(":composeApp")
+rootProject.name = "cyclic-examples"

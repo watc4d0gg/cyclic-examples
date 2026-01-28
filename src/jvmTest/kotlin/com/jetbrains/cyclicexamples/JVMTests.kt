@@ -3,7 +3,12 @@ package com.jetbrains.cyclicexamples
 import com.jetbrains.cyclicexamples.kt20238.ClassTest
 import com.jetbrains.cyclicexamples.kt20238.EnumTest
 import com.jetbrains.cyclicexamples.kt20238.InterfaceTest
+import com.jetbrains.cyclicexamples.kt20808.Bar
+import com.jetbrains.cyclicexamples.kt20808.Foo
 import com.jetbrains.cyclicexamples.kt25738.S
+import com.jetbrains.cyclicexamples.kt32524.Child
+import com.jetbrains.cyclicexamples.kt34789.A
+import com.jetbrains.cyclicexamples.kt37165.MyEnum
 import com.jetbrains.cyclicexamples.kt57374.Base
 import com.jetbrains.cyclicexamples.kt57374.Derived
 import com.jetbrains.cyclicexamples.kt71653.Table1
@@ -18,12 +23,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.assertDoesNotThrow
+import org.junit.jupiter.api.assertNotNull
 import org.junit.jupiter.api.assertTimeoutPreemptively
 import java.time.Duration
 import kotlin.test.Test
 import kotlin.test.assertIs
 import kotlin.test.assertSame
-
 
 class JVMTests {
 
@@ -45,7 +50,6 @@ class JVMTests {
                 }
             }
         }
-
     }
 
     @Test
@@ -104,6 +108,31 @@ class JVMTests {
                     assertIs(Table2)
                 }
             }
+        }
+    }
+
+    @Test
+    fun test_KT32524() {
+        assertDoesNotThrow { Child.instance.inner.foo() }
+    }
+
+    @Test
+    fun test_KT37165() {
+        assertDoesNotThrow {
+            assertSame("test", MyEnum.A.function())
+        }
+    }
+
+    @Test
+    fun test_KT34789() {
+        assertNotNull(A.a)
+    }
+
+    @Test
+    fun test_KT20808() {
+        assertDoesNotThrow {
+            assertSame("AAA", Foo.CONST)
+            assertSame("AAA", Bar.prop)
         }
     }
 }

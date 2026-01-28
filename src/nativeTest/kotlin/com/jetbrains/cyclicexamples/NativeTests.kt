@@ -5,7 +5,12 @@ package com.jetbrains.cyclicexamples
 import com.jetbrains.cyclicexamples.kt20238.ClassTest
 import com.jetbrains.cyclicexamples.kt20238.EnumTest
 import com.jetbrains.cyclicexamples.kt20238.InterfaceTest
+import com.jetbrains.cyclicexamples.kt20808.Bar
+import com.jetbrains.cyclicexamples.kt20808.Foo
 import com.jetbrains.cyclicexamples.kt25738.S
+import com.jetbrains.cyclicexamples.kt32524.Child
+import com.jetbrains.cyclicexamples.kt34789.A
+import com.jetbrains.cyclicexamples.kt37165.MyEnum
 import com.jetbrains.cyclicexamples.kt57374.Base
 import com.jetbrains.cyclicexamples.kt57374.Derived
 import com.jetbrains.cyclicexamples.kt71653.Table1
@@ -25,6 +30,7 @@ import kotlin.native.concurrent.ObsoleteWorkersApi
 import kotlin.native.concurrent.TransferMode
 import kotlin.native.concurrent.Worker
 import kotlin.test.Test
+import kotlin.test.assertNotNull
 import kotlin.test.assertSame
 import kotlin.test.fail
 import kotlin.time.Duration.Companion.seconds
@@ -32,10 +38,10 @@ import kotlin.time.Duration.Companion.seconds
 class NativeTests {
 
     companion object {
-        inline fun <R> assertDoesNotFail(executable: () -> R): R =
+        inline fun <R> assertDoesNotFail(crossinline executable: () -> R): R =
             runCatching(executable).fold(
                 onSuccess = { it },
-                onFailure = { fail() }
+                onFailure = { fail("We failed?") }
             )
     }
 
@@ -114,5 +120,30 @@ class NativeTests {
                 fail("The test timed out!")
             }
         }
+    }
+
+    @Test
+    fun test_KT37165() {
+        assertDoesNotFail {
+            assertSame("test", MyEnum.A.function())
+        }
+    }
+
+    @Test
+    fun test_KT34789() {
+        assertNotNull(A.a)
+    }
+
+    @Test
+    fun test_KT20808() {
+        assertDoesNotFail {
+            assertSame("AAA", Foo.CONST)
+            assertSame("AAA", Bar.prop)
+        }
+    }
+    @Test
+    // NOTE: has to be the last one since the bad access exception kills the entire test task after running this test
+    fun test_KT32524() {
+        assertDoesNotFail { Child.instance.inner.foo() }
     }
 }
